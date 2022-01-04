@@ -18,6 +18,10 @@ COPY ./resources/wsl.conf /etc/wsl.conf
 RUN /bin/bash -c 'echo "default=${USER}" >> /etc/wsl.conf; \
     echo "${USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers;'
 
+#Adding some default nameservers and prevent it from being deleted
+COPY ./resources/resolv.conf /etc/resolv.conf
+RUN sudo chattr +i /etc/resolv.conf
+
 #Add current user to environment 
 RUN /bin/bash -c 'useradd -m -s /bin/bash -g root ${USER}; echo "${USER}:PassW0rd" | chpasswd'
 
