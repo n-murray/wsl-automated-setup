@@ -6,12 +6,7 @@ ARG USER
 #Install required applications
 RUN apt-get update -y && apt-get -y install python iputils-ping \
     iproute2 curl wget vim passwd sudo apt-transport-https ca-certificates \
-    software-properties-common openjdk-8-jdk && \
-    #Installing Docker client
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
-    && apt-key fingerprint 0EBFCD88 && add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) \
-    stable" && apt-get update -y && apt-get install -y docker-ce
+    software-properties-common openjdk-8-jdk
 
 #Add wsl settings to change mount point and default user
 COPY ./resources/wsl.conf /etc/wsl.conf
