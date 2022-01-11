@@ -5,7 +5,8 @@ ARG USER
 
 #Install required applications
 RUN apt-get update -y && apt-get -y install python iputils-ping \
-    iproute2 curl wget vim passwd sudo apt-transport-https ca-certificates \
+    iproute2 openssh-client openssh-server curl wget vim passwd sudo \
+    apt-transport-https ca-certificates \
     software-properties-common openjdk-8-jdk
 
 #Add maven from web source
