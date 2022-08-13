@@ -19,19 +19,20 @@ ___
 
 > ### Prerequisites
 > For the installation you will need the following:
-> - Docker Desktop
 > - Git (If cloning the repository)
-  
+
+**Docker Desktop is now optional**
+
+If not installed a minimal Alpine Linux distro will be installed and act as a builder which will install Docker and create our distro.
+Once installation is complete the builder distro is removed.
+
 ___
 ### If WSL is enabled already
 If you have got WSL and WSL2 enabled already on your computer and you have Docker Desktop installed you simply
-need to run the build_environment.bat file in this folder. This script will build a Docker container using a
-Dockerfile which installs the required applications for development eg... Java, Maven, Python and Docker.
-As part of getting WSL2 working correctly behind the company VPN there is also some network configuration
-that is done as part of the script. This will also add a start up script that will run whenever you start up Windows
-this script requires administrative privileges so will ask for permission to run on login.
+need to run the ***"build_environment.bat"*** file in this folder. This script will build a Docker container using a
+Dockerfile which installs the required applications for development eg... Java, Maven, Python and Docker. ***If the tar file "dev-env.tar.gz" already exists from previous runs it will be used instead of recreating it.***
 
-If for whatever reason you want to remove the installed WSL distro you can run the remove_environment.bat
+If for whatever reason you want to remove the installed WSL distro you can run the ***"remove_environment.bat"***
 which will remove the distro and the network configurations. To re-install the custom WSL distro again just 
 re-run the build_environment.bat and it will install a fresh distro.
 ___
@@ -55,10 +56,7 @@ The commands in these scripts are from the official Microsoft installation guide
 I have just automated the instructions using batch files, however you can just follow that guide if 
 you would prefer not to run them.
 
-After runnning these scripts you will need to have Docker Desktop installed on your laptop
-to continue with the installation: https://www.docker.com/products/docker-desktop
-
-Brief Script Expalanation:
+### Brief Script Expalanation:
 
 enable-wsl2-part1.bat:
 This script enables the WSL and Virtual machine platform optional Windows features that are
